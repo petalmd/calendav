@@ -4,7 +4,7 @@
 2- required ruby version is changed to >= 2.6.6
 
 **To Test** 
-add `gem 'calendav', require: false, path: '../calendav'` to gemfile
+add `gem 'calendav', git: 'https://github.com/petalmd/calendav', require: false` to gemfile
 ensure you run ruby 2.6.6
 open a ruby console and `require 'calendav'`. it should not raise any error
 you may also want to test it by connecting to Caldav Server (if you have one running in ur machine)
