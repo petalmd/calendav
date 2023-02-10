@@ -91,6 +91,13 @@ module Calendav
           .text["200 OK"] == "200 OK"
       end
 
+      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Petal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      def share(url, action, username: nil, email: nil)
+        body = Requests::ShareCalendar.call(action, username, email)
+
+        endpoint.post(body, url)
+      end
+
       private
 
       attr_reader :client, :endpoint, :credentials

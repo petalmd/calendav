@@ -11,6 +11,7 @@ module Calendav
       return host.to_s if url_or_path.nil? || url_or_path.empty?
 
       if url_or_path.start_with?("/")
+        # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Petal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         url_or_path = encode_path(url_or_path)
 
         host.dup.tap { |new_url| new_url.path = url_or_path }.to_s
@@ -20,12 +21,15 @@ module Calendav
     end
 
     def self.encode_path(url)
-      url.split("/").map do |path|
-        PERMITTED_SPECIAL_CHARACTER.each do |ch|
-          path.gsub!(ch, CGI.escape(ch))
-        end
-        path
-      end.join("/") + "/"
+      url =
+        url.split("/").map do |path|
+          PERMITTED_SPECIAL_CHARACTER.each do |ch|
+            path.gsub!(ch, CGI.escape(ch))
+          end
+          path
+        end.join("/")
+
+      "#{url}/"
     end
   end
 end

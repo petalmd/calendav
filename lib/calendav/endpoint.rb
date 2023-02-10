@@ -8,7 +8,9 @@ module Calendav
   class Endpoint
     CONTENT_TYPES = {
       ics: "text/calendar",
-      xml: "application/xml; charset=utf-8"
+      xml: "application/xml; charset=utf-8",
+      # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Petal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      xwform: "application/x-www-form-urlencoded"
     }.freeze
 
     def initialize(credentials, timeout: nil)
@@ -73,6 +75,11 @@ module Calendav
         url: url,
         http: with_headers(depth: depth, content_type: :xml)
       )
+    end
+
+    # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Petal>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    def post(body, url)
+      request(:post, body, url: url, http: with_headers(content_type: :xwform))
     end
 
     private
