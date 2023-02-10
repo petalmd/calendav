@@ -1,9 +1,14 @@
 # in this FORK
-3 dots as a method argument is not supported by ruby 2.6.6
-1- all occurrences are replaced with proper arguments.
-2- required ruby version is changed to >= 2.6.6
-3- special character is accepted as username (check file: `lib/calendav/contextual_url.rb`)
-4- share calendar with another user with his/her username or email (check file: Calendav::Clients::CalendarsClient#share)
+
+0 - 3 dots (...) as a method argument is not supported by ruby 2.6.6 <br>
+1 - all occurrences are replaced with proper arguments.<br>
+2 - required ruby version is changed to >= 2.6.6<br>
+3 - special character is accepted as username (check file: `lib/calendav/contextual_url.rb`). petmitted charachter: 
+```
+! $ & ' * + - =  ^ _ ` { | } ~"
+``` 
+
+4 - share calendar with another user with his/her username or email (check file: Calendav::Clients::CalendarsClient#share)<br>
 
 **To Test** 
 add `gem 'calendav', git: 'https://github.com/petalmd/calendav', require: false` to gemfile
